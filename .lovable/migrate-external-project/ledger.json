@@ -1,0 +1,10 @@
+[
+  {"capability":"code","source":"Node http server + static pages (/, /staff)","outcome":"migrate","status":"in_progress","next_action":"Rebuild as TanStack routes + server functions"},
+  {"capability":"schema","source":"SQLite codes table","outcome":"migrate","status":"in_progress","next_action":"Postgres codes + staff_pin_fails tables, spin_wheel function"},
+  {"capability":"records","source":"SQLite data/forge.db (not in archive)","outcome":"migrate","status":"pending","next_action":"Optional: user exports codes table as CSV if any codes were already issued"},
+  {"capability":"auth identities","source":"none (anonymous cookie players, staff PIN)","outcome":"not_applicable","status":"verified","next_action":"none"},
+  {"capability":"authorization","source":"STAFF_PIN header with lockout","outcome":"migrate","status":"in_progress","next_action":"STAFF_PIN secret, DB-backed lockout"},
+  {"capability":"secrets","source":"STAFF_PIN","outcome":"migrate","status":"pending","next_action":"Request STAFF_PIN via secret form"},
+  {"capability":"rate limiting","source":"in-memory per-IP spin limiter","outcome":"replaced","status":"in_progress","next_action":"Covered by DB per-IP daily cap; in-memory limiter dropped (stateless workers)"},
+  {"capability":"verification","source":"test.js","outcome":"migrate","status":"pending","next_action":"Run spin + redeem end to end"}
+]
